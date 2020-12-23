@@ -27,6 +27,10 @@ public class UserUnidac {
 	@Column(nullable = true)
 	private String password;
 
+	public UserUnidac() {
+		super();
+	}
+
 	public UserUnidac(Long id, String name, String cpf, String birthday, String password) {
 		super();
 		this.id = id;
