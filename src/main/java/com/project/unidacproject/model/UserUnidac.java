@@ -1,5 +1,8 @@
 package com.project.unidacproject.model;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -87,6 +90,9 @@ public class UserUnidac {
 	}
 
 	public boolean isAlpha() {
-	    return this.getName().matches("/^[ a-zA-ZÀ-ÿ\\u00f1\\u00d1]*$/g");
+		Pattern pattern = Pattern.compile("[A-Za-zÀ-ÿ '-]*");
+		Matcher matcher = pattern.matcher(this.getName());
+		boolean result = matcher.matches();
+		return result;
 	}
 }
