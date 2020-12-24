@@ -1,6 +1,8 @@
 package com.project.unidacproject.controller;
 
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -62,7 +64,7 @@ public class UserUnidacController {
 	@ApiResponses({ @ApiResponse(code = 201, message = "Created"), @ApiResponse(code = 400, message = "Bad Request") })
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<UserUnidac> createUserUnidac(@RequestBody UserUnidac userUnidac) {
+	public ResponseEntity<UserUnidac> createUserUnidac(@RequestBody UserUnidac userUnidac) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		userUnidac = userUnidacService.saveUserUnidac(userUnidac);
 
 		if (userUnidac == null) {

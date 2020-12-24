@@ -86,4 +86,7 @@ public class UserUnidac {
 				+ password + "]";
 	}
 
+	public boolean isAlpha() {
+	    return this.getName().matches("[a-zA-Z]+");
+	}
 }
