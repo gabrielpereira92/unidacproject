@@ -3,9 +3,6 @@ package com.project.unidacproject.service;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -45,11 +42,6 @@ public class UserUnidacService {
 			String aniver = userUnidac.getBirthday();
 			String cpf = userUnidac.getCpf();
 			String criptPassword = this.criptPassword(aniver, cpf);
-			
-			Calendar dataAniver = this.parserDate(aniver);
-			
-			
-			
 			
 			userUnidac.setPassword(criptPassword);
 
@@ -94,14 +86,6 @@ public class UserUnidacService {
 
 		return passHex;
 
-	}
-	
-	private final static String DATE_PATTERN = "yyyy-MM-dd";
-	public static Calendar parserDate(String dateStr) throws java.text.ParseException {
-		Date date = new SimpleDateFormat(DATE_PATTERN).parse(dateStr);
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
-		return calendar;
 	}
 
 }
